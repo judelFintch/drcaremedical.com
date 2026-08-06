@@ -6,4 +6,72 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Bleu profond — institution, en-têtes, footer */
+    --color-brand-950: #071b34;
+    --color-brand-900: #0b2545;
+    --color-brand-800: #123763;
+    --color-brand-700: #164a82;
+
+    /* Bleu médical — éléments interactifs, liens, boutons principaux */
+    --color-brand-600: #0f6fb2;
+    --color-brand-500: #1583cf;
+    --color-brand-400: #3ea0e0;
+
+    /* Bleu très clair — arrière-plans secondaires */
+    --color-brand-100: #dcedf9;
+    --color-brand-50: #f0f7fc;
+
+    /* Gris froid — textes secondaires, bordures */
+    --color-neutral-900: #101720;
+    --color-neutral-700: #3a4652;
+    --color-neutral-500: #6b7785;
+    --color-neutral-300: #cbd3da;
+    --color-neutral-200: #e2e7eb;
+    --color-neutral-100: #f2f5f7;
+
+    /* Accent ponctuel — vert médical, réservé aux confirmations/CTA secondaires */
+    --color-accent-600: #16805a;
+    --color-accent-500: #1f9d6f;
+    --color-accent-100: #dcf3e8;
+
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+
+    --shadow-soft: 0 1px 2px 0 rgb(16 23 32 / 0.04), 0 1px 3px 0 rgb(16 23 32 / 0.06);
+    --shadow-card: 0 2px 8px 0 rgb(16 23 32 / 0.06);
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-white text-neutral-900 antialiased;
+    }
+
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-brand-600;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+[x-cloak] {
+    display: none !important;
 }
