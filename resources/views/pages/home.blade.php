@@ -5,7 +5,7 @@
         <div class="absolute -right-32 -top-40 h-[34rem] w-[34rem] rounded-full border border-white/10" aria-hidden="true"></div>
         <div class="absolute -right-8 -top-16 h-80 w-80 rounded-full border border-white/10" aria-hidden="true"></div>
 
-        <div class="relative mx-auto grid min-h-[720px] max-w-7xl items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[1.06fr_.94fr] lg:px-8 lg:py-24">
+        <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:min-h-[720px] lg:grid-cols-[1.06fr_.94fr] lg:px-8 lg:py-24">
             <div class="max-w-3xl">
                 <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[.06] px-4 py-2 text-[11px] font-semibold uppercase tracking-[.2em] text-brand-100">
                     <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-500 opacity-60"></span><span class="relative h-2 w-2 rounded-full bg-accent-500"></span></span>
@@ -69,8 +69,46 @@
         </div>
     </section>
 
+    {{-- Mise en avant institutionnelle de la maison mère --}}
+    <aside class="parent-company-spotlight relative overflow-hidden bg-white" aria-labelledby="parent-company-title">
+        <div class="absolute inset-y-0 right-0 hidden w-[42%] lg:block" aria-hidden="true">
+            <div class="hero-grid absolute inset-0 bg-brand-950 opacity-100"></div>
+            <div class="absolute -right-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border border-white/15"></div>
+            <div class="absolute right-16 top-1/2 grid h-40 w-40 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-brand-950/70 text-center backdrop-blur">
+                <span class="text-4xl font-semibold tracking-[-.06em] text-white">CMC</span>
+            </div>
+        </div>
+        <div class="relative mx-auto grid max-w-7xl lg:grid-cols-[1.45fr_1fr]">
+            <div class="px-5 py-16 sm:px-8 sm:py-20 lg:pr-20">
+                <div class="flex items-center gap-3">
+                    <span class="h-px w-10 bg-accent-600"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-[.22em] text-accent-600">{{ __('home.parent_eyebrow') }}</span>
+                </div>
+                <h2 id="parent-company-title" class="mt-5 max-w-2xl text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-4xl">{{ __('home.parent_title') }}</h2>
+                <p class="mt-5 max-w-2xl text-base leading-7 text-neutral-600">{{ __('home.parent_description') }}</p>
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                    <a href="{{ config('drc.company.parent_company_url') }}" target="_blank" rel="noopener noreferrer" class="group inline-flex min-h-12 w-fit items-center gap-4 rounded-md bg-brand-950 px-5 text-sm font-semibold text-white transition hover:bg-brand-800">
+                        {{ __('home.parent_cta') }}
+                        <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5M6 8.25v9.75h9.75"/></svg>
+                    </a>
+                    <span class="font-mono text-xs text-neutral-500">chinacaremedical.com</span>
+                </div>
+            </div>
+            <div class="relative min-h-48 overflow-hidden bg-brand-950 lg:min-h-0 lg:bg-transparent">
+                <div class="hero-grid absolute inset-0 opacity-40 lg:hidden" aria-hidden="true"></div>
+                <div class="absolute inset-0 flex items-center justify-center lg:hidden" aria-hidden="true"><span class="grid h-28 w-28 place-items-center rounded-full border border-white/20 text-3xl font-semibold text-white">CMC</span></div>
+            </div>
+        </div>
+    </aside>
+
     {{-- Catalogue en ruban --}}
-    @php $categories = \App\Models\Category::query()->active()->ordered()->get(); @endphp
+    @php
+        $categories = \App\Models\Category::query()
+            ->active()
+            ->whereHas('products', fn ($query) => $query->published()->localStock())
+            ->ordered()
+            ->get();
+    @endphp
     <section class="py-24 sm:py-28">
         <div class="mx-auto max-w-7xl px-5 sm:px-8">
             <div class="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
@@ -92,6 +130,48 @@
             @endif
         </div>
     </section>
+
+    {{-- Matériels vedettes --}}
+    @if ($featuredProducts->isNotEmpty())
+        <section class="overflow-hidden bg-brand-50 py-24 sm:py-28">
+            <div class="mx-auto max-w-7xl px-5 sm:px-8">
+                <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
+                    <div>
+                        <span class="section-index">03 / {{ __('home.featured_eyebrow') }}</span>
+                        <h2 class="mt-6 max-w-3xl text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-5xl">{{ __('home.featured_title') }}</h2>
+                        <p class="mt-5 max-w-2xl leading-7 text-neutral-600">{{ __('home.featured_description') }}</p>
+                    </div>
+                    <a href="{{ route('catalog.index') }}" class="art-link">{{ __('home.equipment_cta') }} <span>↗</span></a>
+                </div>
+
+                <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    @foreach ($featuredProducts as $product)
+                        <article class="product-editorial group flex min-h-[460px] flex-col overflow-hidden bg-white">
+                            <a href="{{ route('catalog.show', $product) }}" class="relative block aspect-[4/3] overflow-hidden bg-brand-900">
+                                @if ($product->main_image)
+                                    <img src="{{ media_url($product->main_image) }}" alt="{{ t($product, 'name') }}" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                                @else
+                                    <div class="hero-grid absolute inset-0 opacity-40"></div>
+                                    <div class="absolute inset-0 grid place-items-center">
+                                        <svg class="h-16 w-16 text-white/25" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M42 16h16v26h26v16H58v26H42V58H16V42h26V16Z"/></svg>
+                                    </div>
+                                @endif
+                                <span class="absolute left-4 top-4 bg-white px-3 py-1.5 text-[9px] font-bold uppercase tracking-[.18em] text-brand-800">{{ t($product->category, 'name') }}</span>
+                            </a>
+                            <div class="flex flex-1 flex-col p-6">
+                                <h3 class="text-xl font-semibold tracking-tight text-brand-950"><a href="{{ route('catalog.show', $product) }}">{{ t($product, 'name') }}</a></h3>
+                                @if (t($product, 'summary'))<p class="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-neutral-600">{{ t($product, 'summary') }}</p>@endif
+                                <div class="mt-6 flex items-center justify-between border-t border-neutral-200 pt-5">
+                                    <a href="{{ route('catalog.show', $product) }}" class="text-xs font-semibold text-brand-800 hover:text-brand-600">{{ __('catalog.view_product') }}</a>
+                                    <a href="{{ route('quote.create', ['product' => $product->slug]) }}" class="grid h-10 w-10 place-items-center rounded-full bg-brand-950 text-white transition group-hover:bg-accent-500 group-hover:text-brand-950" aria-label="{{ __('catalog.request_quote') }} — {{ t($product, 'name') }}">↗</a>
+                                </div>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
 
     {{-- Services / continuum --}}
     <section class="overflow-hidden bg-brand-950 py-24 text-white sm:py-28">
@@ -157,4 +237,15 @@
             <a href="{{ route('quote.create') }}" class="group inline-flex shrink-0 items-center gap-5 self-start border-b-2 border-brand-950 pb-2 text-sm font-bold lg:self-auto">{{ __('home.cta_button') }} <span class="text-xl transition-transform group-hover:translate-x-1">→</span></a>
         </div>
     </section>
+
+    {{-- Actions commerciales persistantes sur mobile --}}
+    <div class="fixed inset-x-0 bottom-0 z-40 border-t border-white/15 bg-brand-950/95 p-2 pb-[max(.5rem,env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(7,27,52,.2)] backdrop-blur md:hidden">
+        <div class="mx-auto grid max-w-md grid-cols-2 gap-2">
+            <a href="tel:{{ str_replace(' ', '', config('drc.company.phone')) }}" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/15 text-sm font-semibold text-white">
+                <svg class="h-4 w-4 text-brand-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.362-.271.527-.734.417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                {{ __('home.mobile_call') }}
+            </a>
+            <a href="{{ route('quote.create') }}" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent-500 px-3 text-sm font-bold text-brand-950">{{ __('home.mobile_quote') }} <span aria-hidden="true">→</span></a>
+        </div>
+    </div>
 </x-layouts.app>

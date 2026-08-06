@@ -2,8 +2,8 @@
 
 return [
     'hero_eyebrow' => 'Medical & hospital equipment',
-    'hero_title' => 'Medical and hospital equipment from China to the DRC — delivered and installed.',
-    'hero_description' => 'DRC CARE MEDICAL supplies, ships, installs and maintains medical equipment for healthcare facilities in Lubumbashi, Kinshasa, Kasumbalesa and Kolwezi.',
+    'hero_title' => 'Equipping healthcare in the DRC, from sourcing to maintenance.',
+    'hero_description' => 'From China to your facility, DRC CARE MEDICAL selects, ships, installs and maintains medical equipment in Lubumbashi, Kinshasa, Kasumbalesa and Kolwezi.',
     'hero_cta_primary' => 'Request a Quote',
     'hero_cta_secondary' => 'Discover our services',
     'hero_trust' => 'Official branch of China Medical Care in the Democratic Republic of Congo.',
@@ -18,10 +18,21 @@ return [
     'china_title' => 'The DRC branch of China Medical Care',
     'china_description' => 'As the official branch of China Medical Care, DRC CARE MEDICAL relies on a sourcing network in China to supply medical and hospital equipment to healthcare facilities across the DRC.',
 
+    'parent_eyebrow' => 'Our parent company',
+    'parent_title' => 'Explore the international world of China Care Medical',
+    'parent_description' => 'For equipment not yet available in the DRC, explore China Care Medical’s international catalog and contact us to arrange your order and shipping.',
+    'parent_cta' => 'View the made-to-order catalog',
+
     'equipment_eyebrow' => 'Our catalog',
     'equipment_title' => 'Equipment families for every department',
-    'equipment_description' => 'Imaging, operating theatre, critical care, sterilization, laboratory, hospital furniture — discover our main equipment families.',
+    'equipment_description' => 'Browse equipment families currently available in the DRC. Displayed stock is managed through our administration.',
     'equipment_cta' => 'View the full catalog',
+
+    'featured_eyebrow' => 'Featured equipment',
+    'featured_title' => 'Equipment at the heart of your medical operations',
+    'featured_description' => 'Explore selected equipment available on request and speak with our team to define your requirements.',
+    'mobile_call' => 'Call us',
+    'mobile_quote' => 'Request a quote',
 
     'services_eyebrow' => 'Our services',
     'services_title' => 'From order to maintenance',

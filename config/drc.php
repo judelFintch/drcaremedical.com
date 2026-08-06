@@ -10,6 +10,7 @@ return [
         'email' => 'info@drccaremed.com',
         'address' => '196 Avenue Kapenda, Lubumbashi, 212700, République Démocratique du Congo',
         'facebook_url' => 'https://facebook.com/DRCCAREMedical',
+        'parent_company_url' => 'https://www.chinacaremedical.com/',
         'cities' => ['Lubumbashi', 'Kinshasa', 'Kasumbalesa', 'Kolwezi'],
     ],
 ];

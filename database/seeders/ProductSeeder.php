@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
-    private const string DEMO_NOTE_FR = "Fiche produit de démonstration destinée à illustrer le fonctionnement du catalogue. Les caractéristiques techniques réelles seront fournies par DRC CARE MEDICAL.";
+    private const string DEMO_NOTE_FR = 'Fiche produit de démonstration destinée à illustrer le fonctionnement du catalogue. Les caractéristiques techniques réelles seront fournies par DRC CARE MEDICAL.';
 
     private const string DEMO_NOTE_EN = 'Demonstration product sheet used to illustrate how the catalog works. Real technical specifications will be provided by DRC CARE MEDICAL.';
 
@@ -102,6 +102,7 @@ class ProductSeeder extends Seeder
                     'brand' => null,
                     'status' => PublicationStatus::Published,
                     'is_featured' => $data['is_featured'],
+                    'is_local_stock' => false,
                     'order' => $index,
                 ]
             );

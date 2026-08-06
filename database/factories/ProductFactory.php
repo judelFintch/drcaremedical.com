@@ -33,6 +33,7 @@ class ProductFactory extends Factory
             'brand' => null,
             'status' => PublicationStatus::Published,
             'is_featured' => false,
+            'is_local_stock' => true,
             'order' => fake()->numberBetween(0, 20),
         ];
     }

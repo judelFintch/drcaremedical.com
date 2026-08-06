@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 #[Fillable([
     'category_id', 'name_fr', 'name_en', 'slug', 'summary_fr', 'summary_en',
     'description_fr', 'description_en', 'specifications', 'main_image',
-    'reference', 'brand', 'status', 'is_featured', 'order',
+    'reference', 'brand', 'status', 'is_featured', 'is_local_stock', 'order',
     'seo_title_fr', 'seo_title_en', 'seo_description_fr', 'seo_description_en',
 ])]
 class Product extends Model
@@ -30,6 +30,7 @@ class Product extends Model
         return [
             'status' => PublicationStatus::class,
             'is_featured' => 'boolean',
+            'is_local_stock' => 'boolean',
             'order' => 'integer',
             'specifications' => 'array',
         ];
@@ -58,6 +59,11 @@ class Product extends Model
     public function scopeFeatured($query)
     {
         return $query->where('is_featured', true);
+    }
+
+    public function scopeLocalStock($query)
+    {
+        return $query->where('is_local_stock', true);
     }
 
     public function scopeOrdered($query)

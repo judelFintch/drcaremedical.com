@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         return view('pages.home', [
-            'featuredProducts' => Product::query()->published()->featured()->with('category')->ordered()->take(6)->get(),
+            'featuredProducts' => Product::query()->published()->localStock()->featured()->with('category')->ordered()->take(6)->get(),
             'featuredRealisations' => Realisation::query()->published()->featured()->recent()->take(3)->get(),
             'partners' => Partner::query()->published()->ordered()->get(),
             'testimonials' => Testimonial::query()->published()->ordered()->get(),

@@ -82,6 +82,13 @@
             <h2 class="text-sm font-semibold text-neutral-900">Affichage et SEO</h2>
             <div class="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <x-form.input type="number" name="order" label="Ordre d'affichage" :value="$product->order ?? 0" min="0" />
+                <label class="rounded-md border border-brand-200 bg-brand-50 p-4 text-sm text-neutral-700">
+                    <span class="flex items-center gap-2 font-semibold text-brand-900">
+                        <input type="checkbox" name="is_local_stock" value="1" @checked(old('is_local_stock', $product->is_local_stock ?? false)) class="h-4 w-4 rounded border-neutral-300 text-brand-600 focus:ring-brand-500">
+                        Disponible physiquement en RDC
+                    </span>
+                    <span class="mt-2 block text-xs leading-5 text-neutral-600">Obligatoire pour afficher ce matériel dans le catalogue public. Ne cochez cette case qu'après confirmation du stock local.</span>
+                </label>
                 <label class="flex items-center gap-2 pt-7 text-sm text-neutral-700">
                     <input type="checkbox" name="is_featured" value="1" @checked($product->is_featured ?? false) class="h-4 w-4 rounded border-neutral-300 text-brand-600 focus:ring-brand-500">
                     Mettre en avant sur l'accueil

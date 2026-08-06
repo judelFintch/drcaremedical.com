@@ -32,6 +32,8 @@ class ProductRequest extends FormRequest
             'reference' => ['nullable', 'string', 'max:255'],
             'brand' => ['nullable', 'string', 'max:255'],
             'status' => ['required', Rule::enum(PublicationStatus::class)],
+            'is_local_stock' => ['nullable', 'boolean'],
+            'is_featured' => ['nullable', 'boolean'],
             'order' => ['nullable', 'integer', 'min:0'],
             'seo_title_fr' => ['nullable', 'string', 'max:255'],
             'seo_title_en' => ['nullable', 'string', 'max:255'],

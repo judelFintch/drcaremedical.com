@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Category;
+use App\Models\MediaImage;
 use App\Models\Product;
 use App\Services\ImageUploadService;
 use Illuminate\Http\RedirectResponse;
@@ -28,7 +29,7 @@ class ProductController extends Controller
     public function create(): View
     {
         return view('admin.products.form', [
-            'product' => new Product(),
+            'product' => new Product,
             'categories' => Category::query()->ordered()->get(),
         ]);
     }
@@ -37,6 +38,8 @@ class ProductController extends Controller
     {
         $data = $request->safe()->except(['main_image', 'gallery', 'spec_labels', 'spec_values']);
         $data['specifications'] = $request->specifications();
+        $data['is_local_stock'] = $request->boolean('is_local_stock');
+        $data['is_featured'] = $request->boolean('is_featured');
 
         if ($request->hasFile('main_image')) {
             $data['main_image'] = $images->store($request->file('main_image'), 'products');
@@ -61,6 +64,8 @@ class ProductController extends Controller
     {
         $data = $request->safe()->except(['main_image', 'gallery', 'spec_labels', 'spec_values']);
         $data['specifications'] = $request->specifications();
+        $data['is_local_stock'] = $request->boolean('is_local_stock');
+        $data['is_featured'] = $request->boolean('is_featured');
 
         if ($request->hasFile('main_image')) {
             $data['main_image'] = $images->replace($product->main_image, $request->file('main_image'), 'products');
@@ -86,7 +91,7 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index')->with('status', 'Produit supprimé.');
     }
 
-    public function destroyImage(Product $product, \App\Models\MediaImage $image, ImageUploadService $images): RedirectResponse
+    public function destroyImage(Product $product, MediaImage $image, ImageUploadService $images): RedirectResponse
     {
         abort_unless($image->imageable_id === $product->id && $image->imageable_type === Product::class, 404);
 

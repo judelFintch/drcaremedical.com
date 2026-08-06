@@ -2,8 +2,8 @@
 
 return [
     'hero_eyebrow' => 'Matériel médical & hospitalier',
-    'hero_title' => 'L\'équipement médical et hospitalier de la Chine à la RDC, livré et installé.',
-    'hero_description' => 'DRC CARE MEDICAL approvisionne, achemine, installe et entretient le matériel médical des établissements de santé à Lubumbashi, Kinshasa, Kasumbalesa et Kolwezi.',
+    'hero_title' => 'Équiper la santé en RDC, de l’approvisionnement à la maintenance.',
+    'hero_description' => 'Depuis la Chine jusqu’à votre établissement, DRC CARE MEDICAL sélectionne, achemine, installe et entretient vos équipements médicaux à Lubumbashi, Kinshasa, Kasumbalesa et Kolwezi.',
     'hero_cta_primary' => 'Demander un devis',
     'hero_cta_secondary' => 'Découvrir nos services',
     'hero_trust' => 'Branche officielle de China Medical Care en République Démocratique du Congo.',
@@ -18,10 +18,21 @@ return [
     'china_title' => 'Branche de China Medical Care en RDC',
     'china_description' => 'En tant que branche officielle de China Medical Care, DRC CARE MEDICAL s\'appuie sur un réseau d\'approvisionnement en Chine pour proposer du matériel médical et hospitalier aux structures de santé de la RDC.',
 
+    'parent_eyebrow' => 'Notre maison mère',
+    'parent_title' => 'Explorez l’univers international de China Care Medical',
+    'parent_description' => 'Pour les équipements qui ne sont pas encore disponibles en RDC, explorez le catalogue international de China Care Medical et contactez-nous pour organiser votre commande et son acheminement.',
+    'parent_cta' => 'Voir le catalogue sur commande',
+
     'equipment_eyebrow' => 'Notre catalogue',
     'equipment_title' => 'Des familles de matériel pour chaque service',
-    'equipment_description' => 'Imagerie, bloc opératoire, réanimation, stérilisation, laboratoire, mobilier hospitalier — découvrez nos principales familles d\'équipements.',
+    'equipment_description' => 'Découvrez les familles d’équipements actuellement disponibles en RDC. Le stock affiché est géré depuis notre administration.',
     'equipment_cta' => 'Voir tout le catalogue',
+
+    'featured_eyebrow' => 'Sélection de matériels',
+    'featured_title' => 'Des équipements au cœur de votre activité médicale',
+    'featured_description' => 'Découvrez une sélection de matériels disponibles sur devis et échangez avec notre équipe pour préciser votre besoin.',
+    'mobile_call' => 'Appeler',
+    'mobile_quote' => 'Demander un devis',
 
     'services_eyebrow' => 'Nos services',
     'services_title' => 'De la commande à la maintenance',

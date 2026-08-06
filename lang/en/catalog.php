@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'hero_title' => 'Medical and Hospital Equipment',
-    'hero_description' => 'Browse our medical equipment families. For any product you\'re interested in, request a quote.',
+    'hero_title' => 'Equipment available in the DRC',
+    'hero_description' => 'This catalog exclusively presents equipment already available locally. For international orders, visit the China Care Medical website.',
+    'international_cta' => 'Explore the made-to-order catalog',
     'search_placeholder' => 'Search for equipment…',
     'filter_category' => 'Category',
     'all_categories' => 'All categories',

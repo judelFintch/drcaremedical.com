@@ -3,6 +3,9 @@
         <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold text-white sm:text-4xl">{{ __('catalog.hero_title') }}</h1>
             <p class="mx-auto mt-4 max-w-2xl text-base text-brand-100">{{ __('catalog.hero_description') }}</p>
+            <a href="{{ config('drc.company.parent_company_url') }}" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 border-b border-accent-500 pb-1 text-sm font-semibold text-accent-500 transition hover:text-white">
+                {{ __('catalog.international_cta') }} <span aria-hidden="true">↗</span>
+            </a>
         </div>
     </section>
 

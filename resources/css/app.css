@@ -104,6 +104,17 @@
         box-shadow: 0 22px 55px -38px rgb(7 27 52 / .7);
     }
 
+    .product-editorial {
+        border: 1px solid rgb(11 37 69 / .1);
+        box-shadow: 0 22px 50px -42px rgb(7 27 52 / .75);
+        transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .product-editorial:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 28px 60px -40px rgb(7 27 52 / .85);
+    }
+
     .nav-link {
         @apply relative whitespace-nowrap py-2 text-[13px] font-medium text-neutral-700 transition-colors hover:text-brand-700;
     }

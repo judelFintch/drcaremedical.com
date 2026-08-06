@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'hero_title' => 'Matériel médical et hospitalier',
-    'hero_description' => 'Découvrez nos familles de matériel médical. Pour un produit qui vous intéresse, demandez un devis.',
+    'hero_title' => 'Matériel disponible en RDC',
+    'hero_description' => 'Ce catalogue présente exclusivement les équipements déjà disponibles localement. Pour une commande internationale, consultez le site de China Care Medical.',
+    'international_cta' => 'Explorer le catalogue sur commande',
     'search_placeholder' => 'Rechercher un équipement…',
     'filter_category' => 'Catégorie',
     'all_categories' => 'Toutes les catégories',

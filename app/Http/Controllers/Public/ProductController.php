@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Public;
 
+use App\Enums\PublicationStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
@@ -14,6 +15,7 @@ class ProductController extends Controller
     {
         $products = Product::query()
             ->published()
+            ->localStock()
             ->with('category')
             ->when($request->filled('category'), fn ($query) => $query->whereHas(
                 'category',
@@ -34,16 +36,21 @@ class ProductController extends Controller
 
         return view('catalog.index', [
             'products' => $products,
-            'categories' => Category::query()->active()->ordered()->get(),
+            'categories' => Category::query()
+                ->active()
+                ->whereHas('products', fn ($query) => $query->published()->localStock())
+                ->ordered()
+                ->get(),
         ]);
     }
 
     public function show(Product $product): View
     {
-        abort_unless($product->status === \App\Enums\PublicationStatus::Published, 404);
+        abort_unless($product->status === PublicationStatus::Published && $product->is_local_stock, 404);
 
         $related = Product::query()
             ->published()
+            ->localStock()
             ->where('category_id', $product->category_id)
             ->whereKeyNot($product->id)
             ->ordered()
