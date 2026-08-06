@@ -7,6 +7,9 @@ return [
     'hero_cta_primary' => 'Request a Quote',
     'hero_cta_secondary' => 'Discover our services',
     'hero_trust' => 'Official branch of China Medical Care in the Democratic Republic of Congo.',
+    'hero_image_alt' => 'Medical and hospital equipment prepared for delivery and installation',
+    'hero_supply_label' => 'Sourcing',
+    'hero_install_label' => 'Installation & support',
 
     'intro_eyebrow' => 'Who we are',
     'intro_title' => 'A technical partner for your medical equipment',

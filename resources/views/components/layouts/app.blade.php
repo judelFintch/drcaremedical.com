@@ -19,13 +19,15 @@
     <title>{{ $pageTitle }}</title>
     <meta name="description" content="{{ $pageDescription }}">
     <link rel="canonical" href="{{ $canonicalUrl }}">
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/webp" href="{{ asset('images/brand/drc-care-medical-logo.webp') }}">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="DRC CARE MEDICAL">
     <meta property="og:title" content="{{ $pageTitle }}">
     <meta property="og:description" content="{{ $pageDescription }}">
     <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:image" content="{{ asset('images/site/medical-equipment-hero.webp') }}">
+    <meta property="og:image:alt" content="{{ __('home.hero_image_alt') }}">
     <meta property="og:locale" content="{{ app()->getLocale() === 'fr' ? 'fr_FR' : 'en_US' }}">
     <meta name="twitter:card" content="summary_large_image">
 

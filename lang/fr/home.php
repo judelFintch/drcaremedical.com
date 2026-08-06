@@ -7,6 +7,9 @@ return [
     'hero_cta_primary' => 'Demander un devis',
     'hero_cta_secondary' => 'Découvrir nos services',
     'hero_trust' => 'Branche officielle de China Medical Care en République Démocratique du Congo.',
+    'hero_image_alt' => 'Équipements médicaux et hospitaliers préparés pour la livraison et l’installation',
+    'hero_supply_label' => 'Approvisionnement',
+    'hero_install_label' => 'Installation & suivi',
 
     'intro_eyebrow' => 'Qui sommes-nous',
     'intro_title' => 'Un partenaire technique pour vos équipements médicaux',

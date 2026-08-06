@@ -2,8 +2,10 @@
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-                <a href="{{ route('home') }}" class="flex items-center gap-2">
-                    <span class="flex h-10 w-10 items-center justify-center rounded-md bg-white text-sm font-bold text-brand-900">DC</span>
+                <a href="{{ route('home') }}" class="flex items-center gap-3">
+                    <span class="h-14 w-14 shrink-0 overflow-hidden rounded-md bg-black ring-1 ring-white/15">
+                        <img src="{{ asset('images/brand/drc-care-medical-logo.webp') }}" alt="" width="56" height="56" loading="lazy" class="h-full w-full object-cover">
+                    </span>
                     <span class="text-sm font-bold tracking-tight text-white">DRC CARE MEDICAL</span>
                 </a>
                 <p class="mt-4 text-sm leading-relaxed text-neutral-400">{{ __('footer.about_excerpt') }}</p>

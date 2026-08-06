@@ -75,3 +75,74 @@
 [x-cloak] {
     display: none !important;
 }
+
+@layer components {
+    .hero-grid {
+        background-image: linear-gradient(rgb(255 255 255 / .07) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(255 255 255 / .07) 1px, transparent 1px);
+        background-size: 52px 52px;
+        mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .section-index {
+        @apply inline-block border-b border-neutral-300 pb-2 font-mono text-[10px] font-semibold uppercase tracking-[.18em] text-neutral-500;
+    }
+
+    .art-link {
+        @apply inline-flex w-fit items-center gap-4 border-b border-brand-700 pb-2 text-sm font-semibold text-brand-800 transition-colors hover:border-accent-600 hover:text-accent-600;
+    }
+
+    .art-link span {
+        @apply text-lg transition-transform;
+    }
+
+    .art-link:hover span {
+        transform: rotate(45deg);
+    }
+
+    .project-tile {
+        box-shadow: 0 22px 55px -38px rgb(7 27 52 / .7);
+    }
+
+    .nav-link {
+        @apply relative whitespace-nowrap py-2 text-[13px] font-medium text-neutral-700 transition-colors hover:text-brand-700;
+    }
+
+    .nav-link::after {
+        content: '';
+        @apply absolute inset-x-0 -bottom-2 h-px origin-left scale-x-0 bg-brand-600 transition-transform;
+    }
+
+    .nav-link:hover::after,
+    .nav-link-active::after {
+        @apply scale-x-100;
+    }
+
+    .nav-link-active {
+        @apply text-brand-700;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .medical-orbit {
+        animation: float-medical 7s ease-in-out infinite;
+    }
+
+    .orbit-node {
+        animation: float-node 5s ease-in-out infinite;
+    }
+
+    .orbit-node-delay {
+        animation: float-node 5s 1.25s ease-in-out infinite;
+    }
+}
+
+@keyframes float-medical {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes float-node {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
