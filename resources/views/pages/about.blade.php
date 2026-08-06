@@ -57,11 +57,7 @@
                 <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
                     @foreach ($team as $member)
                         <div class="text-center">
-                            <div class="mx-auto h-24 w-24 overflow-hidden rounded-full bg-neutral-200">
-                                @if ($member->photo)
-                                    <img src="{{ media_url($member->photo) }}" alt="{{ $member->name }}" class="h-full w-full object-cover">
-                                @endif
-                            </div>
+                            <x-team-avatar :member="$member" size="lg" />
                             <p class="mt-3 text-sm font-semibold text-neutral-900">{{ $member->name }}</p>
                             <p class="text-xs text-neutral-500">{{ t($member, 'role') }}</p>
                         </div>

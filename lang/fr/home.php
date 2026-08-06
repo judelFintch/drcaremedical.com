@@ -62,6 +62,12 @@ return [
     'partners_title' => 'Ils nous ont fait confiance',
     'partners_description' => 'Des structures de santé qui ont choisi DRC CARE MEDICAL pour les accompagner dans leurs besoins en équipements.',
 
+    'team_eyebrow' => 'Notre équipe',
+    'team_title' => 'Une direction engagée, entourée de son équipe',
+    'team_description' => 'Découvrez les personnes publiées par DRC CARE MEDICAL pour représenter sa direction et ses différents pôles opérationnels.',
+    'team_cta' => 'Découvrir l’entreprise',
+    'team_no_photo' => 'Aucune photo disponible pour :name',
+
     'testimonials_eyebrow' => 'Témoignages',
     'testimonials_title' => 'La parole à nos partenaires',
 

@@ -8,6 +8,7 @@ use App\Models\Partner;
 use App\Models\Product;
 use App\Models\Realisation;
 use App\Models\Stat;
+use App\Models\TeamMember;
 use App\Models\Testimonial;
 use Illuminate\View\View;
 
@@ -20,6 +21,7 @@ class HomeController extends Controller
             'featuredRealisations' => Realisation::query()->published()->featured()->recent()->take(3)->get(),
             'partners' => Partner::query()->published()->ordered()->get(),
             'testimonials' => Testimonial::query()->published()->ordered()->get(),
+            'team' => TeamMember::query()->published()->ordered()->take(8)->get(),
             'stats' => Stat::query()->published()->ordered()->get(),
             'faqs' => Faq::query()->published()->ordered()->get(),
         ]);

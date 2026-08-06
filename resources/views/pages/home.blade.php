@@ -245,10 +245,38 @@
         </section>
     @endif
 
+    @if ($team->isNotEmpty())
+        <section class="surface-cloud relative overflow-hidden py-24 sm:py-28" aria-labelledby="home-team-title">
+            <div class="absolute -left-28 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border border-brand-600/10" aria-hidden="true"></div>
+            <div class="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:gap-20">
+                <div>
+                    <span class="section-index">06 / {{ __('home.team_eyebrow') }}</span>
+                    <h2 id="home-team-title" class="mt-6 text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-5xl">{{ __('home.team_title') }}</h2>
+                    <p class="mt-5 max-w-md text-sm leading-7 text-neutral-600">{{ __('home.team_description') }}</p>
+                    <a href="{{ route('about') }}" class="art-link mt-8">{{ __('home.team_cta') }} <span>↗</span></a>
+                </div>
+                <div class="divide-y divide-brand-900/10 border-y border-brand-900/10">
+                    @foreach ($team as $member)
+                        <article class="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-5 sm:gap-6">
+                            <x-team-avatar :member="$member" size="sm" class="transition-transform duration-300 group-hover:scale-105" />
+                            <div class="min-w-0">
+                                <h3 class="truncate text-sm font-semibold text-brand-950 sm:text-base">{{ $member->name }}</h3>
+                                <p class="mt-1 text-xs text-neutral-500">{{ t($member, 'role') }}</p>
+                            </div>
+                            @if ($member->city)
+                                <span class="hidden text-[10px] font-semibold uppercase tracking-[.14em] text-brand-600 sm:block">{{ $member->city }}</span>
+                            @endif
+                        </article>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
     @if ($faqs->isNotEmpty())
         <section class="surface-medical relative overflow-hidden py-24">
             <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr]">
-                <div><span class="section-index">06 / FAQ</span><h2 class="mt-6 text-3xl font-semibold tracking-tight text-brand-950 sm:text-4xl">{{ __('home.faq_title') }}</h2></div>
+                <div><span class="section-index">07 / FAQ</span><h2 class="mt-6 text-3xl font-semibold tracking-tight text-brand-950 sm:text-4xl">{{ __('home.faq_title') }}</h2></div>
                 <div class="border-t border-brand-900/15">@foreach ($faqs as $faq)<div x-data="{ open: false }" class="border-b border-brand-900/15"><button type="button" @click="open=!open" :aria-expanded="open" class="flex w-full items-center justify-between gap-6 py-6 text-left"><span class="font-semibold text-brand-950">{{ t($faq, 'question') }}</span><span class="text-2xl font-light text-brand-600" x-text="open ? '−' : '+'"></span></button><div x-cloak x-show="open" x-collapse class="max-w-2xl pb-6 text-sm leading-7 text-neutral-600">{{ t($faq, 'answer') }}</div></div>@endforeach</div>
             </div>
         </section>

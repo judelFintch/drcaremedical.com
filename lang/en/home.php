@@ -62,6 +62,12 @@ return [
     'partners_title' => 'They placed their trust in us',
     'partners_description' => 'Healthcare organizations that chose DRC CARE MEDICAL to support their equipment needs.',
 
+    'team_eyebrow' => 'Our team',
+    'team_title' => 'Committed leadership, supported by its team',
+    'team_description' => 'Meet the people published by DRC CARE MEDICAL to represent its leadership and operational teams.',
+    'team_cta' => 'Discover the company',
+    'team_no_photo' => 'No photo available for :name',
+
     'testimonials_eyebrow' => 'Testimonials',
     'testimonials_title' => 'What our partners say',
 
