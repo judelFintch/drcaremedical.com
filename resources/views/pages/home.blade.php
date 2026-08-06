@@ -211,11 +211,35 @@
         </div>
     </section>
 
-    @if ($partners->isNotEmpty() || $testimonials->isNotEmpty() || $stats->isNotEmpty())
+    @if (filled(config('drc.trusted_organizations')) || $partners->isNotEmpty() || $testimonials->isNotEmpty() || $stats->isNotEmpty())
         <section class="surface-white-cross relative overflow-hidden py-24 sm:py-28">
             <div class="mx-auto max-w-7xl px-5 sm:px-8">
                 @if ($stats->isNotEmpty())<div class="grid grid-cols-2 gap-y-10 border-b border-neutral-200 pb-16 md:grid-cols-4">@foreach ($stats as $stat)<div class="border-l border-neutral-200 pl-5"><p class="text-4xl font-semibold tracking-tight text-brand-950 sm:text-5xl">{{ $stat->value }}</p><p class="mt-2 text-xs uppercase tracking-wider text-neutral-500">{{ t($stat, 'label') }}</p></div>@endforeach</div>@endif
-                @if ($partners->isNotEmpty())<div class="pt-16"><p class="text-center text-[10px] font-bold uppercase tracking-[.25em] text-neutral-500">{{ __('home.partners_title') }}</p><div class="mt-9 grid grid-cols-2 items-center gap-4 sm:grid-cols-4">@foreach ($partners as $partner)<div class="flex h-20 items-center justify-center border border-neutral-200 px-5">@if ($partner->logo)<img src="{{ media_url($partner->logo) }}" alt="{{ $partner->name }}" loading="lazy" class="max-h-11 max-w-full object-contain grayscale transition hover:grayscale-0">@else<span class="text-center text-sm font-semibold text-neutral-500">{{ $partner->name }}</span>@endif</div>@endforeach</div></div>@endif
+                <div class="pt-16">
+                    <div class="mx-auto max-w-2xl text-center">
+                        <span class="section-index">{{ __('home.partners_eyebrow') }}</span>
+                        <h2 class="mt-6 text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-4xl">{{ __('home.partners_title') }}</h2>
+                        <p class="mt-4 text-sm leading-7 text-neutral-600">{{ __('home.partners_description') }}</p>
+                    </div>
+                    <div class="mx-auto mt-10 grid max-w-5xl grid-cols-2 items-stretch gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                        @foreach (config('drc.trusted_organizations', []) as $organization)
+                            <div class="trust-logo-card group">
+                                <img src="{{ asset($organization['logo']) }}" alt="{{ $organization['name'] }}" width="120" height="120" loading="lazy" class="max-h-20 max-w-[78%] object-contain transition-transform duration-300 group-hover:scale-105">
+                                <span class="mt-3 text-center text-[10px] font-semibold uppercase tracking-[.12em] text-neutral-500">{{ $organization['name'] }}</span>
+                            </div>
+                        @endforeach
+                        @foreach ($partners as $partner)
+                            <div class="trust-logo-card group">
+                                @if ($partner->logo)
+                                    <img src="{{ media_url($partner->logo) }}" alt="{{ $partner->name }}" loading="lazy" class="max-h-20 max-w-[78%] object-contain transition-transform duration-300 group-hover:scale-105">
+                                @else
+                                    <span class="text-center text-sm font-semibold text-brand-900">{{ $partner->name }}</span>
+                                @endif
+                                @if ($partner->logo)<span class="mt-3 text-center text-[10px] font-semibold uppercase tracking-[.12em] text-neutral-500">{{ $partner->name }}</span>@endif
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
                 @if ($testimonials->isNotEmpty())<div class="mx-auto mt-20 max-w-4xl text-center" x-data="{ active: 0 }">@foreach ($testimonials as $testimonial)<blockquote x-cloak x-show="active === {{ $loop->index }}" class="text-2xl font-medium leading-relaxed tracking-tight text-brand-950 sm:text-4xl">“{{ t($testimonial, 'content') }}”<footer class="mt-6 text-xs font-semibold uppercase tracking-[.18em] text-neutral-500">{{ $testimonial->name }}{{ $testimonial->institution ? ' · '.$testimonial->institution : '' }}</footer></blockquote>@endforeach @if($testimonials->count() > 1)<div class="mt-8 flex justify-center gap-2">@foreach($testimonials as $testimonial)<button class="h-1.5 w-8 transition-colors" :class="active === {{ $loop->index }} ? 'bg-brand-700' : 'bg-neutral-200'" @click="active={{ $loop->index }}" aria-label="Témoignage {{ $loop->iteration }}"></button>@endforeach</div>@endif</div>@endif
             </div>
         </section>

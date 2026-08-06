@@ -59,7 +59,8 @@ return [
     'realisations_cta' => 'View all case studies',
 
     'partners_eyebrow' => 'Partners',
-    'partners_title' => 'Trusted by',
+    'partners_title' => 'They placed their trust in us',
+    'partners_description' => 'Healthcare organizations that chose DRC CARE MEDICAL to support their equipment needs.',
 
     'testimonials_eyebrow' => 'Testimonials',
     'testimonials_title' => 'What our partners say',

@@ -59,7 +59,8 @@ return [
     'realisations_cta' => 'Voir toutes les réalisations',
 
     'partners_eyebrow' => 'Partenaires',
-    'partners_title' => 'Ils nous font confiance',
+    'partners_title' => 'Ils nous ont fait confiance',
+    'partners_description' => 'Des structures de santé qui ont choisi DRC CARE MEDICAL pour les accompagner dans leurs besoins en équipements.',
 
     'testimonials_eyebrow' => 'Témoignages',
     'testimonials_title' => 'La parole à nos partenaires',

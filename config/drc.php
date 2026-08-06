@@ -13,4 +13,13 @@ return [
         'parent_company_url' => 'https://www.chinacaremedical.com/',
         'cities' => ['Lubumbashi', 'Kinshasa', 'Kasumbalesa', 'Kolwezi'],
     ],
+
+    // Organisations ayant explicitement autorisé l'affichage de leur identité.
+    // Les autres logos peuvent être gérés depuis le module Partenaires.
+    'trusted_organizations' => [
+        [
+            'name' => 'CMDC Clinique',
+            'logo' => 'images/trusted/cmdc-clinique.png',
+        ],
+    ],
 ];
