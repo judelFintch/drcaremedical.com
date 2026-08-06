@@ -52,7 +52,7 @@
     </section>
 
     {{-- Manifeste --}}
-    <section class="relative overflow-hidden bg-[#f7fafc] py-24 sm:py-32">
+    <section class="surface-cloud section-wave-top relative overflow-hidden py-24 sm:py-32">
         <div class="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-24">
             <div>
                 <span class="section-index">01 / DRC CARE</span>
@@ -70,7 +70,7 @@
     </section>
 
     {{-- Mise en avant institutionnelle de la maison mère --}}
-    <aside class="parent-company-spotlight relative overflow-hidden bg-white" aria-labelledby="parent-company-title">
+    <aside class="surface-parent parent-company-spotlight relative overflow-hidden" aria-labelledby="parent-company-title">
         <div class="absolute inset-y-0 right-0 hidden w-[42%] lg:block" aria-hidden="true">
             <div class="hero-grid absolute inset-0 bg-brand-950 opacity-100"></div>
             <div class="absolute -right-20 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full border border-white/15"></div>
@@ -109,7 +109,7 @@
             ->ordered()
             ->get();
     @endphp
-    <section class="py-24 sm:py-28">
+    <section class="surface-white-cross relative overflow-hidden py-24 sm:py-28">
         <div class="mx-auto max-w-7xl px-5 sm:px-8">
             <div class="grid items-end gap-8 lg:grid-cols-[1fr_auto]">
                 <div><span class="section-index">02 / {{ __('home.equipment_eyebrow') }}</span><h2 class="mt-6 max-w-3xl text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-5xl">{{ __('home.equipment_title') }}</h2><p class="mt-5 max-w-2xl leading-7 text-neutral-600">{{ __('home.equipment_description') }}</p></div>
@@ -133,7 +133,7 @@
 
     {{-- Matériels vedettes --}}
     @if ($featuredProducts->isNotEmpty())
-        <section class="overflow-hidden bg-brand-50 py-24 sm:py-28">
+        <section class="surface-medical relative overflow-hidden py-24 sm:py-28">
             <div class="mx-auto max-w-7xl px-5 sm:px-8">
                 <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
                     <div>
@@ -174,10 +174,10 @@
     @endif
 
     {{-- Services / continuum --}}
-    <section class="overflow-hidden bg-brand-950 py-24 text-white sm:py-28">
+    <section class="surface-night section-diagonal-top relative overflow-hidden py-24 text-white sm:py-28">
         <div class="mx-auto max-w-7xl px-5 sm:px-8">
             <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
-                <div><span class="section-index !border-white/20 !text-brand-300">03 / {{ __('home.services_eyebrow') }}</span><h2 class="mt-7 text-3xl font-semibold tracking-[-.035em] sm:text-5xl">{{ __('home.services_title') }}</h2><p class="mt-5 max-w-md leading-7 text-white/60">{{ __('home.services_description') }}</p><a href="{{ route('services') }}" class="mt-8 inline-flex border-b border-accent-500 pb-1 text-sm font-semibold text-accent-500">{{ __('home.services_cta') }} ↗</a></div>
+                <div><span class="section-index !border-white/20 !text-brand-300">04 / {{ __('home.services_eyebrow') }}</span><h2 class="mt-7 text-3xl font-semibold tracking-[-.035em] sm:text-5xl">{{ __('home.services_title') }}</h2><p class="mt-5 max-w-md leading-7 text-white/60">{{ __('home.services_description') }}</p><a href="{{ route('services') }}" class="mt-8 inline-flex border-b border-accent-500 pb-1 text-sm font-semibold text-accent-500">{{ __('home.services_cta') }} ↗</a></div>
                 <div class="relative lg:pt-4">
                     <div class="absolute bottom-6 left-[19px] top-6 w-px bg-gradient-to-b from-accent-500 via-brand-500 to-white/10" aria-hidden="true"></div>
                     @foreach (range(1, 4) as $step)
@@ -192,9 +192,9 @@
     </section>
 
     {{-- Réalisations --}}
-    <section class="bg-[#f7fafc] py-24 sm:py-28">
+    <section class="surface-cloud section-arc-top relative overflow-hidden py-24 sm:py-28">
         <div class="mx-auto max-w-7xl px-5 sm:px-8">
-            <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end"><div><span class="section-index">04 / {{ __('home.realisations_eyebrow') }}</span><h2 class="mt-6 text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-5xl">{{ __('home.realisations_title') }}</h2></div><a class="art-link" href="{{ route('realisations.index') }}">{{ __('home.realisations_cta') }} <span>↗</span></a></div>
+            <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end"><div><span class="section-index">05 / {{ __('home.realisations_eyebrow') }}</span><h2 class="mt-6 text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-5xl">{{ __('home.realisations_title') }}</h2></div><a class="art-link" href="{{ route('realisations.index') }}">{{ __('home.realisations_cta') }} <span>↗</span></a></div>
             @if ($featuredRealisations->isNotEmpty())
                 <div class="mt-14 grid gap-6 md:grid-cols-12">
                     @foreach ($featuredRealisations as $realisation)
@@ -212,7 +212,7 @@
     </section>
 
     @if ($partners->isNotEmpty() || $testimonials->isNotEmpty() || $stats->isNotEmpty())
-        <section class="py-24 sm:py-28">
+        <section class="surface-white-cross relative overflow-hidden py-24 sm:py-28">
             <div class="mx-auto max-w-7xl px-5 sm:px-8">
                 @if ($stats->isNotEmpty())<div class="grid grid-cols-2 gap-y-10 border-b border-neutral-200 pb-16 md:grid-cols-4">@foreach ($stats as $stat)<div class="border-l border-neutral-200 pl-5"><p class="text-4xl font-semibold tracking-tight text-brand-950 sm:text-5xl">{{ $stat->value }}</p><p class="mt-2 text-xs uppercase tracking-wider text-neutral-500">{{ t($stat, 'label') }}</p></div>@endforeach</div>@endif
                 @if ($partners->isNotEmpty())<div class="pt-16"><p class="text-center text-[10px] font-bold uppercase tracking-[.25em] text-neutral-500">{{ __('home.partners_title') }}</p><div class="mt-9 grid grid-cols-2 items-center gap-4 sm:grid-cols-4">@foreach ($partners as $partner)<div class="flex h-20 items-center justify-center border border-neutral-200 px-5">@if ($partner->logo)<img src="{{ media_url($partner->logo) }}" alt="{{ $partner->name }}" loading="lazy" class="max-h-11 max-w-full object-contain grayscale transition hover:grayscale-0">@else<span class="text-center text-sm font-semibold text-neutral-500">{{ $partner->name }}</span>@endif</div>@endforeach</div></div>@endif
@@ -222,9 +222,9 @@
     @endif
 
     @if ($faqs->isNotEmpty())
-        <section class="bg-brand-50 py-24">
+        <section class="surface-medical relative overflow-hidden py-24">
             <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr]">
-                <div><span class="section-index">05 / FAQ</span><h2 class="mt-6 text-3xl font-semibold tracking-tight text-brand-950 sm:text-4xl">{{ __('home.faq_title') }}</h2></div>
+                <div><span class="section-index">06 / FAQ</span><h2 class="mt-6 text-3xl font-semibold tracking-tight text-brand-950 sm:text-4xl">{{ __('home.faq_title') }}</h2></div>
                 <div class="border-t border-brand-900/15">@foreach ($faqs as $faq)<div x-data="{ open: false }" class="border-b border-brand-900/15"><button type="button" @click="open=!open" :aria-expanded="open" class="flex w-full items-center justify-between gap-6 py-6 text-left"><span class="font-semibold text-brand-950">{{ t($faq, 'question') }}</span><span class="text-2xl font-light text-brand-600" x-text="open ? '−' : '+'"></span></button><div x-cloak x-show="open" x-collapse class="max-w-2xl pb-6 text-sm leading-7 text-neutral-600">{{ t($faq, 'answer') }}</div></div>@endforeach</div>
             </div>
         </section>
