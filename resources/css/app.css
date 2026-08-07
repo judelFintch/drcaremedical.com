@@ -79,15 +79,15 @@
 @layer components {
     .surface-cloud {
         background:
-            radial-gradient(circle at 88% 12%, rgb(21 131 207 / .08), transparent 26rem),
-            radial-gradient(circle at 8% 88%, rgb(31 157 111 / .04), transparent 22rem),
+            radial-gradient(circle at 88% 12%, rgb(21 131 207 / .14), transparent 26rem),
+            radial-gradient(circle at 8% 88%, rgb(31 157 111 / .09), transparent 22rem),
             #f7fafc;
     }
 
     .surface-medical {
         background:
-            linear-gradient(115deg, transparent 0 64%, rgb(255 255 255 / .42) 64% 65%, transparent 65%),
-            radial-gradient(circle at 78% 25%, rgb(15 111 178 / .1), transparent 30rem),
+            linear-gradient(115deg, transparent 0 64%, rgb(255 255 255 / .7) 64% 65%, transparent 65%),
+            radial-gradient(circle at 78% 25%, rgb(15 111 178 / .17), transparent 30rem),
             #eef7fb;
     }
 
@@ -99,9 +99,51 @@
 
     .surface-night {
         background:
-            radial-gradient(circle at 82% 20%, rgb(21 131 207 / .2), transparent 28rem),
-            radial-gradient(circle at 10% 90%, rgb(31 157 111 / .09), transparent 24rem),
+            radial-gradient(circle at 82% 20%, rgb(21 131 207 / .3), transparent 28rem),
+            radial-gradient(circle at 10% 90%, rgb(31 157 111 / .16), transparent 24rem),
             #071b34;
+    }
+
+    .surface-cloud::after,
+    .surface-medical::after,
+    .surface-night::after,
+    .team-showcase::after {
+        content: '+';
+        position: absolute;
+        z-index: 0;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(18rem, 36vw, 34rem);
+        font-weight: 600;
+        line-height: .72;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .surface-cloud::after {
+        right: -3rem;
+        bottom: -6rem;
+        color: rgb(15 111 178 / .075);
+    }
+
+    .surface-medical::after {
+        left: -4rem;
+        top: 4rem;
+        color: rgb(31 157 111 / .085);
+        transform: rotate(-8deg);
+    }
+
+    .surface-night::after {
+        right: -3rem;
+        bottom: -7rem;
+        color: rgb(255 255 255 / .045);
+    }
+
+    .surface-cloud > *,
+    .surface-medical > *,
+    .surface-night > *,
+    .team-showcase > * {
+        position: relative;
+        z-index: 1;
     }
 
     .surface-white-cross::after {
@@ -110,7 +152,7 @@
         right: -2rem;
         top: 5rem;
         z-index: 0;
-        color: rgb(15 111 178 / .035);
+        color: rgb(15 111 178 / .075);
         font-size: clamp(18rem, 38vw, 38rem);
         font-weight: 700;
         line-height: .65;
@@ -197,6 +239,35 @@
         @apply border-brand-400;
         box-shadow: 0 22px 50px -38px rgb(7 27 52 / .8);
         transform: translateY(-2px);
+    }
+
+    .team-showcase {
+        background:
+            radial-gradient(circle at 82% 15%, rgb(21 131 207 / .32), transparent 28rem),
+            radial-gradient(circle at 12% 90%, rgb(31 157 111 / .18), transparent 24rem),
+            #071b34;
+    }
+
+    .team-showcase::after {
+        content: 'CMC';
+        right: -1.5rem;
+        bottom: -1rem;
+        color: rgb(255 255 255 / .035);
+        font-size: clamp(10rem, 26vw, 25rem);
+        font-weight: 700;
+        letter-spacing: -.09em;
+        line-height: .8;
+    }
+
+    .team-card {
+        box-shadow: 0 26px 60px -48px rgb(0 0 0 / .9);
+        transition: border-color 300ms ease, background-color 300ms ease, transform 300ms ease;
+    }
+
+    .team-card:hover {
+        border-color: rgb(62 160 224 / .42);
+        background-color: rgb(255 255 255 / .085);
+        transform: translateY(-4px);
     }
 
     .nav-link {

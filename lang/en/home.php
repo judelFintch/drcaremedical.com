@@ -10,6 +10,9 @@ return [
     'hero_image_alt' => 'Medical and hospital equipment prepared for delivery and installation',
     'hero_supply_label' => 'Sourcing',
     'hero_install_label' => 'Installation & support',
+    'hero_metric_cities' => 'cities covered',
+    'hero_metric_support' => 'end-to-end support',
+    'hero_metric_network' => 'international network',
 
     'intro_eyebrow' => 'Who we are',
     'intro_title' => 'A technical partner for your medical equipment',
@@ -63,10 +66,14 @@ return [
     'partners_description' => 'Healthcare organizations that chose DRC CARE MEDICAL to support their equipment needs.',
 
     'team_eyebrow' => 'Our team',
-    'team_title' => 'Committed leadership, supported by its team',
-    'team_description' => 'Meet the people published by DRC CARE MEDICAL to represent its leadership and operational teams.',
-    'team_cta' => 'Discover the company',
+    'team_title' => 'People dedicated to bringing your healthcare projects to life',
+    'team_description' => 'Leadership, logistics and biomedical expertise: our team brings together the skills needed to support every project, from the first conversation to commissioning.',
+    'team_cta' => 'Get to know us',
+    'team_leadership' => 'Leadership',
+    'team_empty_title' => 'Meet our team soon',
+    'team_empty_description' => 'Our team profiles are currently being published. In the meantime, we remain available to discuss your needs.',
     'team_no_photo' => 'No photo available for :name',
+    'team_linkedin' => 'View :name’s LinkedIn profile',
 
     'testimonials_eyebrow' => 'Testimonials',
     'testimonials_title' => 'What our partners say',

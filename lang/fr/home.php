@@ -10,6 +10,9 @@ return [
     'hero_image_alt' => 'Équipements médicaux et hospitaliers préparés pour la livraison et l’installation',
     'hero_supply_label' => 'Approvisionnement',
     'hero_install_label' => 'Installation & suivi',
+    'hero_metric_cities' => 'villes couvertes',
+    'hero_metric_support' => 'prise en charge',
+    'hero_metric_network' => 'réseau international',
 
     'intro_eyebrow' => 'Qui sommes-nous',
     'intro_title' => 'Un partenaire technique pour vos équipements médicaux',
@@ -63,10 +66,14 @@ return [
     'partners_description' => 'Des structures de santé qui ont choisi DRC CARE MEDICAL pour les accompagner dans leurs besoins en équipements.',
 
     'team_eyebrow' => 'Notre équipe',
-    'team_title' => 'Une direction engagée, entourée de son équipe',
-    'team_description' => 'Découvrez les personnes publiées par DRC CARE MEDICAL pour représenter sa direction et ses différents pôles opérationnels.',
-    'team_cta' => 'Découvrir l’entreprise',
+    'team_title' => 'Des femmes et des hommes au service de vos projets de santé',
+    'team_description' => 'Direction, logistique et expertise biomédicale : notre équipe réunit les compétences nécessaires pour accompagner chaque projet, du premier échange à la mise en service.',
+    'team_cta' => 'Mieux nous connaître',
+    'team_leadership' => 'Direction',
+    'team_empty_title' => 'Notre équipe arrive bientôt',
+    'team_empty_description' => 'Les profils de nos collaborateurs sont en cours de publication. Notre équipe reste disponible pour répondre à vos besoins.',
     'team_no_photo' => 'Aucune photo disponible pour :name',
+    'team_linkedin' => 'Voir le profil LinkedIn de :name',
 
     'testimonials_eyebrow' => 'Témoignages',
     'testimonials_title' => 'La parole à nos partenaires',

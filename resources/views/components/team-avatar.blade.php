@@ -8,6 +8,7 @@
         'sm' => 'h-14 w-14 text-sm',
         'md' => 'h-18 w-18 text-base',
         'lg' => 'h-24 w-24 text-xl',
+        'xl' => 'h-32 w-32 text-2xl sm:h-40 sm:w-40 sm:text-3xl',
     ];
     $initials = collect(preg_split('/\s+/u', trim($member->name)))
         ->filter()

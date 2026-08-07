@@ -22,9 +22,17 @@
                     </a>
                     <a href="{{ route('services') }}" class="inline-flex min-h-13 items-center justify-center rounded-md border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/[.06]">{{ __('home.hero_cta_secondary') }}</a>
                 </div>
-                <div class="mt-11 flex max-w-xl items-start gap-4 border-l border-accent-500/70 pl-5">
-                    <span class="mt-1 text-[10px] font-bold uppercase tracking-[.2em] text-accent-500">CMC</span>
-                    <p class="text-sm leading-6 text-brand-100">{{ __('home.hero_trust') }}</p>
+                <div class="mt-11 grid max-w-2xl grid-cols-3 border-y border-white/10">
+                    @foreach ([
+                        ['value' => '4', 'label' => __('home.hero_metric_cities')],
+                        ['value' => '360°', 'label' => __('home.hero_metric_support')],
+                        ['value' => 'CMC', 'label' => __('home.hero_metric_network')],
+                    ] as $metric)
+                        <div class="border-r border-white/10 px-3 py-4 first:pl-0 last:border-r-0 sm:px-5">
+                            <span class="block text-lg font-semibold tracking-tight text-white sm:text-2xl">{{ $metric['value'] }}</span>
+                            <span class="mt-1 block text-[9px] font-semibold uppercase leading-4 tracking-[.14em] text-brand-200 sm:text-[10px]">{{ $metric['label'] }}</span>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -245,33 +253,56 @@
         </section>
     @endif
 
-    @if ($team->isNotEmpty())
-        <section class="surface-cloud relative overflow-hidden py-24 sm:py-28" aria-labelledby="home-team-title">
-            <div class="absolute -left-28 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border border-brand-600/10" aria-hidden="true"></div>
-            <div class="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.75fr_1.25fr] lg:gap-20">
+    <section class="team-showcase relative isolate overflow-hidden bg-brand-950 py-24 text-white sm:py-32" aria-labelledby="home-team-title">
+        <div class="hero-grid absolute inset-0 opacity-20" aria-hidden="true"></div>
+        <div class="absolute -right-40 -top-52 h-[34rem] w-[34rem] rounded-full border border-white/10" aria-hidden="true"></div>
+        <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+            <div class="grid items-end gap-8 border-b border-white/15 pb-10 lg:grid-cols-[1fr_.7fr]">
                 <div>
-                    <span class="section-index">06 / {{ __('home.team_eyebrow') }}</span>
-                    <h2 id="home-team-title" class="mt-6 text-3xl font-semibold tracking-[-.035em] text-brand-950 sm:text-5xl">{{ __('home.team_title') }}</h2>
-                    <p class="mt-5 max-w-md text-sm leading-7 text-neutral-600">{{ __('home.team_description') }}</p>
-                    <a href="{{ route('about') }}" class="art-link mt-8">{{ __('home.team_cta') }} <span>↗</span></a>
+                    <span class="section-index !border-white/20 !text-brand-300">06 / {{ __('home.team_eyebrow') }}</span>
+                    <h2 id="home-team-title" class="mt-6 max-w-3xl text-3xl font-semibold leading-tight tracking-[-.04em] text-white sm:text-5xl">{{ __('home.team_title') }}</h2>
                 </div>
-                <div class="divide-y divide-brand-900/10 border-y border-brand-900/10">
+                <div class="lg:pb-1">
+                    <p class="max-w-xl text-sm leading-7 text-white/65 sm:text-base">{{ __('home.team_description') }}</p>
+                    <a href="{{ route('about') }}" class="mt-6 inline-flex items-center gap-4 border-b border-accent-500 pb-2 text-sm font-semibold text-accent-500 transition hover:text-white">{{ __('home.team_cta') }} <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+
+            @if ($team->isNotEmpty())
+                <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                     @foreach ($team as $member)
-                        <article class="group grid grid-cols-[auto_1fr_auto] items-center gap-4 py-5 sm:gap-6">
-                            <x-team-avatar :member="$member" size="sm" class="transition-transform duration-300 group-hover:scale-105" />
-                            <div class="min-w-0">
-                                <h3 class="truncate text-sm font-semibold text-brand-950 sm:text-base">{{ $member->name }}</h3>
-                                <p class="mt-1 text-xs text-neutral-500">{{ t($member, 'role') }}</p>
+                        <article class="team-card group relative flex min-h-[390px] flex-col overflow-hidden border border-white/10 bg-white/[.055] p-6 backdrop-blur-sm {{ $member->is_leadership ? 'sm:col-span-2 sm:row-span-2 lg:min-h-[520px]' : '' }}">
+                            <div class="absolute right-4 top-3 font-mono text-[10px] tracking-[.16em] text-white/30">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</div>
+                            <div class="flex flex-1 items-center justify-center py-7">
+                                <x-team-avatar :member="$member" :size="$member->is_leadership ? 'xl' : 'lg'" class="!bg-brand-800 !text-brand-100 !ring-white/10 transition duration-500 group-hover:scale-105 group-hover:!ring-accent-500/40" />
                             </div>
-                            @if ($member->city)
-                                <span class="hidden text-[10px] font-semibold uppercase tracking-[.14em] text-brand-600 sm:block">{{ $member->city }}</span>
+                            @if ($member->is_leadership)
+                                <span class="mb-3 w-fit rounded-full bg-accent-500/15 px-3 py-1 text-[9px] font-bold uppercase tracking-[.16em] text-accent-500">{{ __('home.team_leadership') }}</span>
                             @endif
+                            <div class="border-t border-white/10 pt-5">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div class="min-w-0">
+                                        <h3 class="truncate text-lg font-semibold text-white">{{ $member->name }}</h3>
+                                        <p class="mt-1 text-sm leading-6 text-brand-200">{{ t($member, 'role') }}</p>
+                                    </div>
+                                    @if ($member->linkedin_url)
+                                        <a href="{{ $member->linkedin_url }}" target="_blank" rel="noopener noreferrer" class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/15 text-white/70 transition hover:border-[#0a66c2] hover:bg-[#0a66c2] hover:text-white" aria-label="{{ __('home.team_linkedin', ['name' => $member->name]) }}">
+                                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V19h3.38V8.5ZM5.25 3A1.96 1.96 0 1 0 5.25 6.92 1.96 1.96 0 0 0 5.25 3ZM20.44 13c0-3.16-1.69-4.63-3.94-4.63-1.82 0-2.63 1-3.08 1.7V8.5h-3.38V19h3.38v-5.2c0-1.37.26-2.7 1.96-2.7 1.68 0 1.7 1.57 1.7 2.79V19h3.38L20.44 13Z"/></svg>
+                                        </a>
+                                    @endif
+                                </div>
+                                @if ($member->city)<p class="mt-4 text-[9px] font-semibold uppercase tracking-[.16em] text-white/40">{{ $member->city }}</p>@endif
+                            </div>
                         </article>
                     @endforeach
                 </div>
-            </div>
-        </section>
-    @endif
+            @else
+                <div class="mt-12 grid min-h-72 place-items-center border border-dashed border-white/20 bg-white/[.03] px-6 text-center">
+                    <div><span class="text-5xl font-light text-accent-500">+</span><p class="mt-3 text-lg font-semibold">{{ __('home.team_empty_title') }}</p><p class="mx-auto mt-2 max-w-lg text-sm leading-6 text-white/55">{{ __('home.team_empty_description') }}</p></div>
+                </div>
+            @endif
+        </div>
+    </section>
 
     @if ($faqs->isNotEmpty())
         <section class="surface-medical relative overflow-hidden py-24">
