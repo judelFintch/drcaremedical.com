@@ -39,7 +39,9 @@
                 <h3 class="text-sm font-semibold text-white">{{ __('nav.contact') }}</h3>
                 <ul class="mt-4 space-y-2.5 text-sm text-neutral-400">
                     <li>{{ config('drc.company.address') }}</li>
-                    <li><a href="tel:{{ str_replace(' ', '', config('drc.company.phone')) }}" class="hover:text-white">{{ config('drc.company.phone') }}</a></li>
+                    @foreach (config('drc.company.phones') as $phone)
+                        <li><a href="tel:{{ str_replace(' ', '', $phone) }}" class="hover:text-white">{{ $phone }}</a></li>
+                    @endforeach
                     <li><a href="mailto:{{ config('drc.company.email') }}" class="hover:text-white">{{ config('drc.company.email') }}</a></li>
                     <li>
                         <a href="{{ config('drc.company.facebook_url') }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 hover:text-white">

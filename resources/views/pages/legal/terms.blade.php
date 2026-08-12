@@ -6,7 +6,7 @@
                 <h2>Publisher</h2>
                 <p>
                     DRC CARE MEDICAL — {{ config('drc.company.address') }}<br>
-                    Phone: {{ config('drc.company.phone') }} · Email: {{ config('drc.company.email') }}<br>
+                    Phone: {{ implode(' · ', config('drc.company.phones')) }} · Email: {{ config('drc.company.email') }}<br>
                     DRC CARE MEDICAL is the official branch of China Medical Care in the Democratic Republic of Congo.
                 </p>
                 <p><em>Company registration details to be completed by DRC CARE MEDICAL.</em></p>
@@ -26,7 +26,7 @@
                 <h2>Éditeur du site</h2>
                 <p>
                     DRC CARE MEDICAL — {{ config('drc.company.address') }}<br>
-                    Téléphone : {{ config('drc.company.phone') }} · Email : {{ config('drc.company.email') }}<br>
+                    Téléphones : {{ implode(' · ', config('drc.company.phones')) }} · Email : {{ config('drc.company.email') }}<br>
                     DRC CARE MEDICAL est la branche officielle de China Medical Care en République Démocratique du Congo.
                 </p>
                 <p><em>Informations d'immatriculation à compléter par DRC CARE MEDICAL.</em></p>

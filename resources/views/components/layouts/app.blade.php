@@ -37,7 +37,7 @@
             '@type' => 'MedicalBusiness',
             'name' => 'DRC CARE MEDICAL',
             'url' => url('/'),
-            'telephone' => config('drc.company.phone'),
+            'telephone' => config('drc.company.phones'),
             'email' => config('drc.company.email'),
             'address' => [
                 '@type' => 'PostalAddress',

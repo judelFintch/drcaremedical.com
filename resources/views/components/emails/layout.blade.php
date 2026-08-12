@@ -24,7 +24,7 @@
                     <tr>
                         <td style="padding:20px 32px; background-color:#f2f5f7; font-size:12px; color:#6b7785;">
                             DRC CARE MEDICAL — 196 Avenue Kapenda, Lubumbashi, RDC<br>
-                            {{ config('drc.company.phone') }} · {{ config('drc.company.email') }}
+                            {{ implode(' · ', config('drc.company.phones')) }} · {{ config('drc.company.email') }}
                         </td>
                     </tr>
                 </table>

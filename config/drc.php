@@ -6,7 +6,9 @@ return [
 
     'company' => [
         'name' => 'DRC CARE MEDICAL',
-        'phone' => '+243 99 533 924',
+        'phone' => '+243 995 339 249',
+        'phone_secondary' => '+243 850 323 211',
+        'phones' => ['+243 995 339 249', '+243 850 323 211'],
         'email' => 'info@drccaremed.com',
         'address' => '196 Avenue Kapenda, Lubumbashi, 212700, République Démocratique du Congo',
         'facebook_url' => 'https://facebook.com/DRCCAREMedical',

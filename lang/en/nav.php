@@ -11,4 +11,6 @@ return [
     'partners' => 'Partners',
     'contact' => 'Contact',
     'quote_cta' => 'Request a Quote',
+    'open_menu' => 'Open menu',
+    'close_menu' => 'Close menu',
 ];

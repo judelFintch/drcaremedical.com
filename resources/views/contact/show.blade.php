@@ -39,7 +39,11 @@
                 <x-card>
                     <p class="text-sm font-semibold text-neutral-900">DRC CARE MEDICAL</p>
                     <p class="mt-2 text-sm text-neutral-600">{{ config('drc.company.address') }}</p>
-                    <p class="mt-2 text-sm"><a href="tel:{{ str_replace(' ', '', config('drc.company.phone')) }}" class="text-brand-700 hover:underline">{{ config('drc.company.phone') }}</a></p>
+                    <div class="mt-2 space-y-1 text-sm">
+                        @foreach (config('drc.company.phones') as $phone)
+                            <p><a href="tel:{{ str_replace(' ', '', $phone) }}" class="text-brand-700 hover:underline">{{ $phone }}</a></p>
+                        @endforeach
+                    </div>
                     <p class="mt-1 text-sm"><a href="mailto:{{ config('drc.company.email') }}" class="text-brand-700 hover:underline">{{ config('drc.company.email') }}</a></p>
                     <p class="mt-3 text-sm">
                         <a href="{{ config('drc.company.facebook_url') }}" target="_blank" rel="noopener noreferrer" class="text-brand-700 hover:underline">Facebook</a>
